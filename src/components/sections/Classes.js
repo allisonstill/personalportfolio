@@ -1,8 +1,8 @@
 "use client";
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { classes } from "@/app/data/classesData";
-import { skills } from "@/app/data/skillsData";
+import { classes } from "../../../data/classesData";
+import { skills } from "../../../data/skillsData";
 import SectionTitle from "../ui/SectionTitle";
 import ProgressBar from "../ui/ProgressBar";
 import Card from "../ui/Card";

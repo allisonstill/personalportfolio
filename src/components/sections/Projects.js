@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import { motion, useInView, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
-import { projects } from "@/app/data/projectsData";
+import { projects } from "../../../data/projectsData";
 import SectionTitle from "../ui/SectionTitle";
 
 export default function Projects({ onMouseEnter, onMouseLeave }) {

@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { journeyItems } from "@/app/data/journeyData";
+import { journeyItems } from "../../../data/journeyData";
 import SectionTitle from "../ui/SectionTitle";
 
 export default function Journey({ isInView, onMouseEnter, onMouseLeave }) {

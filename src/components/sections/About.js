@@ -5,7 +5,7 @@ import Image from "next/image";
 import Terminal from "../Terminal";
 import AnimatedText from "../animations/AnimatedText";
 import Button from "../ui/Button";
-import { techStack } from "@/app/data/techStackData";
+import { techStack } from "../../../data/techStackData";
 import { slideUp, staggerContainer, floatAnimation } from "../animations/AnimationUtils";
 
 export default function About({ isInView, onMouseEnter, onMouseLeave }) {
