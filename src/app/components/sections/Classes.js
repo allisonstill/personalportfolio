@@ -59,36 +59,39 @@ export default function Classes({ isInView, onMouseEnter, onMouseLeave }) {
           ))}
         </motion.div>
         
-        <motion.div 
-          className="mt-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-        >
-          <h3 className="text-2xl font-bold mb-6 text-center text-blue-300">Technical Skills</h3>
+        <div className="mt-16 bg-gray-900/10 rounded-xl p-6 backdrop-blur-sm shadow-md">
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
-            }}
+            transition={{ delay: 0.3, duration: 0.5 }}
           >
-            {skills.map((skill, index) => (
-              <ProgressBar
-                key={index}
-                name={skill.name}
-                level={skill.level}
-                index={index}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-              />
-            ))}
+            <h3 className="text-2xl font-bold mb-6 text-center text-blue-300">Technical Skills</h3>
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+            >
+              {skills.map((skill, index) => (
+                <ProgressBar
+                  key={index}
+                  name={skill.name}
+                  level={skill.level}
+                  index={index}
+                  onMouseEnter={onMouseEnter}
+                  onMouseLeave={onMouseLeave}
+                />
+              ))}
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
+
+
       </div>
     </section>
   );

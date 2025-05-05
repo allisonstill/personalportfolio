@@ -28,9 +28,9 @@ export default function ConstellationBackground() {
       >
         <motion.path
           ref={pathRef}
-          d="M 100 100 Q 400 300 300 600 T 600 1000 T 900 1400 T 1200 1800"
+          d="M 100,100 Q 400,300 300,600 T 600,1000 T 900,1400 T 1200,1800"
           stroke="#60a5fa"
-          strokeWidth="4"
+          strokeWidth="2"
           fill="none"
           strokeLinecap="round"
           style={{ pathLength }}

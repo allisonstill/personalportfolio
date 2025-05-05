@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import SectionTitle from "../ui/SectionTitle";
 import emailjs from "@emailjs/browser";
@@ -9,6 +9,12 @@ export default function Contact({ isInView, onMouseEnter, onMouseLeave }) {
   const formRef = useRef(null);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [mounted, setMounted] = useState(false); // hydration fix
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const inView = useInView(ref, { margin: "-100px 0px" }) || isInView;
 
   const handleSubmit = (e) => {
@@ -37,15 +43,19 @@ export default function Contact({ isInView, onMouseEnter, onMouseLeave }) {
     >
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <svg className="absolute top-0 left-0 w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="none">
-          <motion.path 
-            d="M0,192L48,202.7C96,213,192,235,288,245.3C384,256,480,256,576,245.3C672,235,768,213,864,213.3C960,213,1056,235,1152,229.3C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" 
+          {mounted && (
+            <motion.path 
+            d={mounted 
+              ? "M 0,192L48,202.7C96,213,192,235,288,245.3C384,256,480,256,576,245.3C672,235,768,213,864,213.3C960,213,1056,235,1152,229.3C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+              : "M 0,0L0,0Z"
+            }
             fill="rgba(59, 130, 246, 0.05)"
-            animate={{
+            animate={mounted ? {
               d: [
                 "M0,192L48,202.7C96,213,192,235,288,245.3C384,256,480,256,576,245.3C672,235,768,213,864,213.3C960,213,1056,235,1152,229.3C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
                 "M0,160L48,176C96,192,192,224,288,240C384,256,480,256,576,250.7C672,245,768,235,864,208C960,181,1056,139,1152,128C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-              ],
-            }}
+              ]
+            } : undefined}
             transition={{
               duration: 10,
               repeat: Infinity,
@@ -53,6 +63,7 @@ export default function Contact({ isInView, onMouseEnter, onMouseLeave }) {
               ease: "easeInOut"
             }}
           />
+          )}
         </svg>
       </div>
       
@@ -88,7 +99,7 @@ export default function Contact({ isInView, onMouseEnter, onMouseLeave }) {
                     whileHover={{ rotate: 20 }}
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mounted ? "M 3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" : "M 0,0L0,0Z"} />
                     </svg>
                   </motion.div>
                   <div>
@@ -111,8 +122,8 @@ export default function Contact({ isInView, onMouseEnter, onMouseLeave }) {
                     whileHover={{ rotate: 20 }}
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2 9h4v12H2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mounted ? "M 16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" : "M 0,0L0,0Z"} />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d= { mounted ? "M 2 9h4v12H2z" : "M 0,0L0,0Z"}/>
                       <circle cx="4" cy="4" r="2" stroke="currentColor" strokeWidth={2} />
                     </svg>
                   </motion.div>
@@ -136,7 +147,7 @@ export default function Contact({ isInView, onMouseEnter, onMouseLeave }) {
                     whileHover={{ rotate: 20 }}
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mounted ? "M 10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" : "M 0,0L0,0Z"} />
                     </svg>
                   </motion.div>
                   <div>

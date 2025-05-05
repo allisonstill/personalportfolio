@@ -2,9 +2,13 @@
 import { motion, useTransform, useScroll } from "framer-motion";
 import AnimatedText from "../animations/AnimatedText";
 import { textReveal } from "../animations/AnimationUtils";
+import { useState, useEffect } from "react";
 
 export default function LandingPage({ onMouseEnter, onMouseLeave }) {
   const { scrollYProgress } = useScroll();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  
   
   return (
     <section 
@@ -112,7 +116,7 @@ export default function LandingPage({ onMouseEnter, onMouseLeave }) {
             strokeLinecap="round" 
             strokeLinejoin="round" 
             strokeWidth={2} 
-            d="M19 14l-7 7m0 0l-7-7m7 7V3" 
+            d={mounted ? "M 19 14l-7 7m0 0l-7-7m7 7V3" : "M 0,0L0,0Z"}
           />
         </svg>
       </motion.a>
