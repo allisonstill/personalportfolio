@@ -1,13 +1,12 @@
-
-/** @type {import('next').NextConfig} */
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
-    output: 'export',  // Enables static HTML export
+    output: 'export',
     distDir: 'out',
     images: {
-      unoptimized: true, // Required for static export
+      unoptimized: true,
     },
-    // Add basePath if you're not using a custom domain
-    // basePath: '/personalportfolio',
   }
   
-  module.exports = nextConfig
+  export default nextConfig;
