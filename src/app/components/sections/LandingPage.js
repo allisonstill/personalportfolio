@@ -30,7 +30,7 @@ export default function LandingPage({ onMouseEnter, onMouseLeave }) {
         <motion.img
           src="/branches.gif"
           alt="Animated Tree"
-          className="w-30 sm:w-48" // Adjust width
+          className="w-24 sm:w-32 md:w-48 lg:w-64"
           animate={{ y: [0, -5, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />

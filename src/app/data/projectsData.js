@@ -7,7 +7,7 @@ export const projects = [
       link: "https://github.com/allisonstill/ParentAidATX-Single-Parent-Resources-in-Austin-"
     },
     {
-      title: "Austin Animal Shelter Outcome Prediction Framework",
+      title: "Austin Animal Center Outcome Prediction Framework",
       description: "A multi-class classification model used to predict animal shelter outcomes for one of the largest no-kill shelters in the U.S.",
       technologies: ["XGBoost", "Neural Networks", "SMOTE Sampling"],
       image: "/austinAnimalCenter.jpg",
@@ -16,21 +16,17 @@ export const projects = [
     {
       title: "More Projects on GitHub",
       description: "See more of my projects featuring machine learning and full-stack development on GitHub",
-      technologies: ["JavaScript", "Python", "C"],
+      technologies: ["JavaScript", "React.js, Python", "NLP", "API-Integration"],
       image: "/github.jpg",
       link: "https://github.com/allisonstill",
       miniProjects: [
         {
-          name: "Proj1",
-          link: "#",
+          name: "Sentinel Earth",
+          link: "https://github.com/allisonstill/sentinelEarth",
         },
         {
-          name: "Proj2",
-          link: "#",
-        },
-        {
-          name: "Proj3",
-          link: "#",
+          name: "Crypto Dashboard",
+          link: "https://github.com/allisonstill/cryptoDashboard",
         },
       ]
     }

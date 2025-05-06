@@ -15,6 +15,7 @@ import CustomCursor from "./components/ui/CustomCursor";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("landing");
+  const [menuOpen, setMenuOpen] = useState(false);
   const cursorScale = useMotionValue(1);
 
   const landingRef = useRef(null);
@@ -23,6 +24,16 @@ export default function Home() {
   const projectsRef = useRef(null);
   const classesRef = useRef(null);
   const contactRef = useRef(null);
+
+  const navLinks = [
+    { id: "about", label: "About" },
+    { id: "journey", label: "Journey" },
+    { id: "projects", label: "Projects" },
+    { id: "classes", label: "Classes" },
+    { id: "contact", label: "Contact" }
+  ];
+
+  const handleToggle = () => setMenuOpen(!menuOpen);
   
   const handleMouseEnter = () => cursorScale.set(1.5);
   const handleMouseLeave = () => cursorScale.set(1);
@@ -75,28 +86,26 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <motion.div 
-              className="flex items-center"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <motion.span 
-                className="text-xl font-semibold"
-                animate={{ 
-                  backgroundImage: ["linear-gradient(90deg, #60a5fa 0%, #8b5cf6 100%)", "linear-gradient(90deg, #8b5cf6 0%, #60a5fa 100%)"] 
-                }}
-                transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-                style={{ 
-                  backgroundClip: "text", 
-                  WebkitBackgroundClip: "text",
-                  color: "transparent"
-                }}
+          <motion.a 
+            href="#landing"
+            className="text-xl font-semibold text-blue-400 hover:text-blue-300 transition-colors"
+            whileHover={{ scale: 1.05 }}
+          >
+            Allison Still
+          </motion.a>
+
+            <div className="sm:hidden">
+              <button
+                className="text-gray-300 hover:text-blue-400 focus:outline-none"
+                onClick={handleToggle}
               >
-                Allison Still
-              </motion.span>
-            </motion.div>
+                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+
+
             <div className="hidden sm:flex items-center space-x-8">
               {[
                 { id: "about", label: "About" },
@@ -127,6 +136,26 @@ export default function Home() {
               ))}
             </div>
           </div>
+
+          {menuOpen && (
+            <motion.div
+              className="sm:hidden mt-4 flex flex-col space-y-4"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+            >
+              {navLinks.map((section) => (
+                <a
+                  key={section.id}
+                  href={`#${section.id}`}
+                  onClick={() => setMenuOpen(false)}
+                  className="block px-4 py-2 rounded-md text-gray-300 hover:text-blue-400"
+                >
+                  {section.label}
+                </a>
+              ))}
+            </motion.div>
+          )}
         </div>
       </motion.nav>
 

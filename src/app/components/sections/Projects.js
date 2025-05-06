@@ -68,28 +68,31 @@ export default function Projects({ onMouseEnter, onMouseLeave }) {
                         alt={project.title} 
                         width={500} 
                         height={300} 
-                        className="rounded-t-lg object-cover w-full h-48"
+                        className="rounded-t-lg object-cover w-full aspect-video"
                       />
                     </a>
-                    <div className="p-6">
+                    <div className="p-6 flex flex-col justify-between h-full">
                       <h3 className="text-xl font-semibold mb-2 text-blue-300">{project.title}</h3>
                       {project.miniProjects ? (
-                        <div className="text-gray-300 mb-4">
+                        <div className="text-gray-300 mb-4 min-h-[5rem]" >
                           <p>{project.description}</p>
-                          <ul className="mt-4 list-disc list-inside space-y-1 text-blue-300">
+                          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {project.miniProjects.map((mini, i) => (
-                              <li key={i}>
-                                <a
-                                  href={mini.link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="hover:underline hover:text-blue-200 transition-colors"
-                                >
-                                  {mini.name}
-                                </a>
-                              </li>
+                              <motion.a
+                                key={i}
+                                href={mini.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block p-4 bg-gray-900/70 border border-blue-700 rounded-lg hover:bg-gray-800 transition-colors shadow-md"
+                                whileHover={{ scale: 1.03 }}
+                              >
+                                <h4 className="text-lg font-semibold text-blue-300 mb-1">{mini.name}</h4>
+                                {mini.description && (
+                                  <p className="text-sm text-gray-400">{mini.description}</p>
+                                )}
+                              </motion.a>
                             ))}
-                          </ul>
+                          </div>
                         </div>
                       ) : (
                         <p className="text-gray-300 mb-4">{project.description}</p>

@@ -116,10 +116,10 @@ export default function About({ isInView, onMouseEnter, onMouseLeave }) {
               onMouseLeave={onMouseLeave}
             >
 
-              <div className="w-full h-full bg-gray-800 flex items-center justify-center text-6xl">
+              <div className="w-full h-full bg-gray-800 flex items-center justify-center text-6xl ">
                 <motion.div
                   initial={{ scale: 0.5, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
+                  animate={{ scale: 1, opacity: 0.7 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
                 >
                   <Image
@@ -127,7 +127,7 @@ export default function About({ isInView, onMouseEnter, onMouseLeave }) {
                     alt="Profile Image"
                     width={375}
                     height={620}
-                    className="rounded-full"
+                    className="rounded-full brightness-80"
                   />
                 </motion.div>
               </div>
