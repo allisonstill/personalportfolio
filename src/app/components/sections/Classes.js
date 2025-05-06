@@ -59,7 +59,7 @@ export default function Classes({ isInView, onMouseEnter, onMouseLeave }) {
           ))}
         </motion.div>
         
-        <div className="mt-16 bg-gray-900/10 rounded-xl p-6 backdrop-blur-sm shadow-md">
+        <div className="mt-16 bg-gray-900/50 backdrop-blur-2xl rounded-2xl p-8 shadow-lg">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
