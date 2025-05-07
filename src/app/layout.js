@@ -28,6 +28,7 @@ export default function RootLayout({ children }) {
         <StarfieldBackground />
         <ScrollAnimation />
         <ConstellationBackground/>
+        <Analytics />
         {children}
       </body>
     </html>
