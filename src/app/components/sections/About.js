@@ -123,7 +123,7 @@ export default function About({ isInView, onMouseEnter, onMouseLeave }) {
                   transition={{ delay: 0.5, duration: 0.5 }}
                 >
                   <Image
-                    src="/recent-allison-still-headshot.JPG"
+                    src="/headshot-allison-still.jpeg"
                     alt="Profile Image"
                     width={375}
                     height={620}
