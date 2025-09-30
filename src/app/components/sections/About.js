@@ -65,7 +65,11 @@ export default function About({ isInView, onMouseEnter, onMouseLeave }) {
               className="text-lg mb-8 leading-relaxed text-gray-300"
               variants={slideUp}
             >
-              As a third-year University of Texas student pursuing a Bachelor of Science in Computer Science degree with minors in Business and Educational Psychology, I am eager to apply my technical knowledge and problem-solving skills to a new position. I am highly motivated and enthusiastic about contributing to a team and making a meaningful impact in the industry.
+              As a fourth-year Computer Science student at the University of Texas at Austin with minors in Business and Educational Psychology, I am actively seeking a full-time role starting in Summer 2026. I'm excited to apply my technical knowledge and problem-solving skills across software, data, and technology opportunities to contribute to meaningful projects.
+              <br /><br />
+              This past summer, I worked as a Quality Engineering Intern at Crestron Electronics, where I validated and debugged media drivers, leveraged tools including Wireshark and Jira, and collaborated with cross-functional teams on automation and camera systems. This experience strengthened my passion for tackling complex problems and pushed me to design and verify solutions that improve how people interact with technology, while also building confidence in my ability to adapt and deliver in fast-paced environments. 
+              <br /><br />
+              I bring strong technical skills in Java, JavaScript, Python, Swift, C, and REST APIs, along with hands-on experience in Agile/Scrum environments. I am eager to keep learning, grow alongside diverse teams, and help create innovative technology.
             </motion.p>
             <div className="mt-8 max-w-xl">
               <Terminal />
